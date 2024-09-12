@@ -1,0 +1,33 @@
+{
+  "name": "02-filesystem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "start": "node dist/main.js",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/luxon": "^3.4.2",
+    "@types/node": "^22.0.0",
+    "@types/nodemailer": "^6.4.15",
+    "@types/pdfmake": "^0.2.9",
+    "prisma": "^5.19.1",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.19.1",
+    "fastify": "^4.28.1",
+    "fastify-multer": "^2.0.3",
+    "fastify-plugin": "^4.5.1",
+    "luxon": "^3.5.0",
+    "nodemailer": "^6.9.15",
+    "pdfmake": "^0.2.12"
+  }
+}
