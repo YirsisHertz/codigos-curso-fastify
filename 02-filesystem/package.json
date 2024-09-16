@@ -22,6 +22,8 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
+    "@fastify/env": "^4.4.0",
+    "@fastify/jwt": "^8.0.1",
     "@prisma/client": "^5.19.1",
     "fastify": "^4.28.1",
     "fastify-multer": "^2.0.3",

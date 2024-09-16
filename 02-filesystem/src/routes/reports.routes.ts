@@ -6,7 +6,11 @@ import { ReportsController } from "../controllers/reports.controller";
 const reportsRoutes = async (fastify: FastifyInstance) => {
   const reportsController = new ReportsController();
 
-  fastify.get("/invoice", reportsController.getInvoice);
+  fastify.get(
+    "/invoice",
+    { onRequest: [fastify.auth] },
+    reportsController.getInvoice,
+  );
 };
 
 export default fastifyPlugin(reportsRoutes);

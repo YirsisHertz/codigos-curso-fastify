@@ -19,4 +19,5 @@ model users {
   website        String?  @db.VarChar(200)
   zodiac_sign    String?  @db.VarChar(100)
   active         Boolean? @default(true)
+  password       String?
 }
