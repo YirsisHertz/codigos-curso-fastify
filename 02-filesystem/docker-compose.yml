@@ -1,0 +1,44 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: userexample
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: exampledb
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgresdata:/var/lib/postgresql/data
+    networks:
+      - database
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - database
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3001:3000
+    networks:
+      - database
+    depends_on:
+      - db
+    environment:
+      PORT: 3000
+      DATABASE_URL: "postgresql://userexample:example@db/exampledb?schema=public"
+      EMAIL: "y.serrano@uinenlinea.mx"
+      PASSWORD: "prhi okas tlln osxf"
+      JWT_SECRET: "MiP@labr@Cl@veS3cr3t@S3cr3t@"
+
+networks:
+  database:
+    driver: bridge
