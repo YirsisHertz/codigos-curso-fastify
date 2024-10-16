@@ -1,5 +1,6 @@
 import Fastify from "fastify";
 
+import cors from "@fastify/cors";
 import fastifyJwt from "@fastify/jwt";
 import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUI from "@fastify/swagger-ui";
@@ -23,6 +24,8 @@ const start = async () => {
     //   dotenv: true,
     //   schema: {},
     // });
+
+    await fastify.register(cors, {});
 
     await fastify.register(fastifySwagger);
 
